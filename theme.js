@@ -6,7 +6,7 @@ const theme = extendTheme({
     global: {
       'html, body': {
         color: 'white',
-        backgroundColor: 'rgba(0, 0, 0, 1)',
+        backgroundColor: 'rgba(0, 0, 0, 5)',
         backgroundImage: "url('/marstheme.avif')",
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
