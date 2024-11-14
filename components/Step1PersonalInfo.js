@@ -6,10 +6,14 @@ import {
   FormLabel,
   Input,
   FormErrorMessage,
+  Box,
 } from '@chakra-ui/react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormNavigation from './FormNavigation';
+import { motion } from 'framer-motion';
+
+const MotionBox = motion(Box);
 
 function Step1PersonalInfo({ setStep }) {
   const schema = yup.object().shape({
@@ -26,7 +30,6 @@ function Step1PersonalInfo({ setStep }) {
   });
 
   const onSubmit = (data) => {
-    // Save data to localStorage or state management
     localStorage.setItem('step1', JSON.stringify(data));
     setStep(2);
   };
@@ -39,74 +42,91 @@ function Step1PersonalInfo({ setStep }) {
   }, [reset]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormControl isInvalid={formState.errors.fullName} mb="3">
-        <FormLabel>Full Name</FormLabel>
-        <Input
-          name="fullName"
-          placeholder="Enter your full name"
-          {...register('fullName')}
-        />
-        <FormErrorMessage>
-          {formState.errors.fullName && formState.errors.fullName.message}
-        </FormErrorMessage>
-      </FormControl>
+    <MotionBox
+      maxW="500px"
+      mx="auto"
+      mt="10"
+      p="5"
+      bg="rgba(0, 0, 0, 0.6)"
+      borderRadius="md"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormControl isInvalid={!!formState.errors.fullName} mb="3">
+          <FormLabel>Full Name</FormLabel>
+          <Input
+            name="fullName"
+            placeholder="Enter your full name"
+            {...register('fullName')}
+            width="100%"
+          />
+          <FormErrorMessage>
+            {formState.errors.fullName && formState.errors.fullName.message}
+          </FormErrorMessage>
+        </FormControl>
 
-      <FormControl isInvalid={formState.errors.dateOfBirth} mb="3">
-        <FormLabel>Date of Birth</FormLabel>
-        <Input
-          type="date"
-          name="dateOfBirth"
-          {...register('dateOfBirth')}
-        />
-        <FormErrorMessage>
-          {formState.errors.dateOfBirth && formState.errors.dateOfBirth.message}
-        </FormErrorMessage>
-      </FormControl>
+        <FormControl isInvalid={!!formState.errors.dateOfBirth} mb="3">
+          <FormLabel>Date of Birth</FormLabel>
+          <Input
+            type="date"
+            name="dateOfBirth"
+            {...register('dateOfBirth')}
+            width="100%"
+          />
+          <FormErrorMessage>
+            {formState.errors.dateOfBirth && formState.errors.dateOfBirth.message}
+          </FormErrorMessage>
+        </FormControl>
 
-      <FormControl isInvalid={formState.errors.nationality} mb="3">
-        <FormLabel>Nationality</FormLabel>
-        <Input
-          name="nationality"
-          placeholder="Enter your nationality"
-          {...register('nationality')}
-        />
-        <FormErrorMessage>
-          {formState.errors.nationality && formState.errors.nationality.message}
-        </FormErrorMessage>
-      </FormControl>
+        <FormControl isInvalid={!!formState.errors.nationality} mb="3">
+          <FormLabel>Nationality</FormLabel>
+          <Input
+            name="nationality"
+            placeholder="Enter your nationality"
+            {...register('nationality')}
+            width="100%"
+          />
+          <FormErrorMessage>
+            {formState.errors.nationality && formState.errors.nationality.message}
+          </FormErrorMessage>
+        </FormControl>
 
-      <FormControl isInvalid={formState.errors.email} mb="3">
-        <FormLabel>Email</FormLabel>
-        <Input
-          name="email"
-          placeholder="Enter your email"
-          {...register('email')}
-        />
-        <FormErrorMessage>
-          {formState.errors.email && formState.errors.email.message}
-        </FormErrorMessage>
-      </FormControl>
+        <FormControl isInvalid={!!formState.errors.email} mb="3">
+          <FormLabel>Email</FormLabel>
+          <Input
+            name="email"
+            placeholder="Enter your email"
+            {...register('email')}
+            width="100%"
+          />
+          <FormErrorMessage>
+            {formState.errors.email && formState.errors.email.message}
+          </FormErrorMessage>
+        </FormControl>
 
-      <FormControl isInvalid={formState.errors.phone} mb="3">
-        <FormLabel>Phone Number</FormLabel>
-        <Input
-          name="phone"
-          placeholder="Enter your phone number"
-          {...register('phone')}
-        />
-        <FormErrorMessage>
-          {formState.errors.phone && formState.errors.phone.message}
-        </FormErrorMessage>
-      </FormControl>
+        <FormControl isInvalid={!!formState.errors.phone} mb="3">
+          <FormLabel>Phone Number</FormLabel>
+          <Input
+            name="phone"
+            placeholder="Enter your phone number"
+            {...register('phone')}
+            width="100%"
+          />
+          <FormErrorMessage>
+            {formState.errors.phone && formState.errors.phone.message}
+          </FormErrorMessage>
+        </FormControl>
 
-      <FormNavigation
-        step={1}
-        setStep={setStep}
-        isValid={formState.isValid}
-        onSubmit={handleSubmit(onSubmit)}
-      />
-    </form>
+        <FormNavigation
+          step={1}
+          setStep={setStep}
+          isValid={formState.isValid}
+          onSubmit={handleSubmit(onSubmit)}
+        />
+      </form>
+    </MotionBox>
   );
 }
 

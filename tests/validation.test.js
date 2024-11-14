@@ -1,4 +1,5 @@
 // tests/validation.test.js
+import React from 'react'; // Add this line
 import { render, screen, fireEvent } from '@testing-library/react';
 import Step1PersonalInfo from '../components/Step1PersonalInfo';
 
