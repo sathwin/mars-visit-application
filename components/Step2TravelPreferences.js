@@ -26,9 +26,9 @@ function Step2TravelPreferences({ setStep }) {
 
   const { register, handleSubmit, formState, reset } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onChange',
+    mode: 'onSubmit', 
   });
-
+  
   const onSubmit = (data) => {
     localStorage.setItem('step2', JSON.stringify(data));
     setStep(3);

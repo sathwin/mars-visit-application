@@ -26,7 +26,7 @@ function Step1PersonalInfo({ setStep }) {
 
   const { register, handleSubmit, formState, reset } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onChange',
+    mode: 'onSubmit',
   });
 
   const onSubmit = (data) => {
@@ -54,6 +54,7 @@ function Step1PersonalInfo({ setStep }) {
       transition={{ duration: 0.5 }}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
+        {/* Full Name */}
         <FormControl isInvalid={!!formState.errors.fullName} mb="3">
           <FormLabel>Full Name</FormLabel>
           <Input
@@ -62,11 +63,12 @@ function Step1PersonalInfo({ setStep }) {
             {...register('fullName')}
             width="100%"
           />
-          <FormErrorMessage>
+          <FormErrorMessage role="alert">
             {formState.errors.fullName && formState.errors.fullName.message}
           </FormErrorMessage>
         </FormControl>
 
+        {/* Date of Birth */}
         <FormControl isInvalid={!!formState.errors.dateOfBirth} mb="3">
           <FormLabel>Date of Birth</FormLabel>
           <Input
@@ -75,11 +77,12 @@ function Step1PersonalInfo({ setStep }) {
             {...register('dateOfBirth')}
             width="100%"
           />
-          <FormErrorMessage>
+          <FormErrorMessage role="alert">
             {formState.errors.dateOfBirth && formState.errors.dateOfBirth.message}
           </FormErrorMessage>
         </FormControl>
 
+        {/* Nationality */}
         <FormControl isInvalid={!!formState.errors.nationality} mb="3">
           <FormLabel>Nationality</FormLabel>
           <Input
@@ -88,11 +91,12 @@ function Step1PersonalInfo({ setStep }) {
             {...register('nationality')}
             width="100%"
           />
-          <FormErrorMessage>
+          <FormErrorMessage role="alert">
             {formState.errors.nationality && formState.errors.nationality.message}
           </FormErrorMessage>
         </FormControl>
 
+        {/* Email */}
         <FormControl isInvalid={!!formState.errors.email} mb="3">
           <FormLabel>Email</FormLabel>
           <Input
@@ -101,11 +105,12 @@ function Step1PersonalInfo({ setStep }) {
             {...register('email')}
             width="100%"
           />
-          <FormErrorMessage>
+          <FormErrorMessage role="alert">
             {formState.errors.email && formState.errors.email.message}
           </FormErrorMessage>
         </FormControl>
 
+        {/* Phone Number */}
         <FormControl isInvalid={!!formState.errors.phone} mb="3">
           <FormLabel>Phone Number</FormLabel>
           <Input
@@ -114,16 +119,15 @@ function Step1PersonalInfo({ setStep }) {
             {...register('phone')}
             width="100%"
           />
-          <FormErrorMessage>
+          <FormErrorMessage role="alert">
             {formState.errors.phone && formState.errors.phone.message}
           </FormErrorMessage>
         </FormControl>
 
+        {/* Navigation Buttons */}
         <FormNavigation
           step={1}
           setStep={setStep}
-          isValid={formState.isValid}
-          onSubmit={handleSubmit(onSubmit)}
         />
       </form>
     </MotionBox>

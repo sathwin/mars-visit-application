@@ -27,8 +27,9 @@ function Step3HealthSafety({ setStep }) {
 
   const { register, handleSubmit, formState, reset } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onChange',
+    mode: 'onSubmit', 
   });
+  
 
   const onSubmit = (data) => {
     localStorage.setItem('step3', JSON.stringify(data));

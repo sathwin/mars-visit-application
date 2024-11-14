@@ -6,7 +6,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Add Google Fonts */}
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"

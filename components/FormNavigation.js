@@ -1,7 +1,7 @@
 // components/FormNavigation.js
 import { ButtonGroup, Button } from '@chakra-ui/react';
 
-function FormNavigation({ step, setStep, isValid, onSubmit }) {
+function FormNavigation({ step, setStep }) {
   return (
     <ButtonGroup mt="5" width="100%" justifyContent="space-between">
       {step > 1 ? (
@@ -13,8 +13,7 @@ function FormNavigation({ step, setStep, isValid, onSubmit }) {
       )}
       <Button
         colorScheme="teal"
-        onClick={onSubmit}
-        isDisabled={!isValid}
+        type="submit" 
       >
         {step === 3 ? 'Submit' : 'Next'}
       </Button>
