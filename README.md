@@ -1,38 +1,127 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mars Visit Application Form
 
-## Getting Started
+## Description
 
-First, run the development server:
+This project is a multi-stage application form for individuals interested in visiting Mars. The form collects various personal details and preferences from applicants. It is built with **Next.js**, **React**, and **Chakra UI**, utilizing **React Hook Form** for form management and **Yup** for validation. The project also includes unit tests for form validation logic using **Jest**.
+
+## Features
+
+- **Multi-Stage Form:** Three stages collecting personal information, travel preferences, and health & safety details.
+- **Form Validation:** Real-time validation with error messages for required fields, email format, phone format, and date formats.
+- **Form Navigation:** Users can navigate back and forth between form stages to review and edit their entries.
+- **Progress Indicator:** Visual progress bar indicating the current stage of the application.
+- **Responsive Design:** Visually appealing and responsive design using Chakra UI and custom theming.
+- **Success Message:** Displayed upon successful submission of the application.
+- **Unit Testing:** Tests written using Jest and React Testing Library to ensure form validation logic works correctly.
+
+## Live Demo
+
+[Live Demo Link](https://mars-visit-application-nine.vercel.app) https://mars-visit-application-nine.vercel.app
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/mars-visit-application.git
+   cd mars-visit-application
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+### Running the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Building for Production
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```bash
+npm run build
+npm start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Accessing the Application
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Home Page:** Starts at Stage 1 of the application form.
+- **Navigation:** Use the **Next** and **Back** buttons to navigate between stages.
+- **Form Submission:** On the final stage, clicking **Submit** will display a success message.
 
-## Learn More
+## Testing
 
-To learn more about Next.js, take a look at the following resources:
+### Running Tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Testing Details
 
-## Deploy on Vercel
+- Tests are located in the `tests` directory.
+- The testing framework used is **Jest** along with **React Testing Library**.
+- Current tests cover validation logic for the personal information step.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application is deployed on Vercel and can be accessed via the [Live Demo Link](https://mars-visit-application-nine.vercel.app).
+
+
+## Project Structure
+
+- **`components/`**
+  - Reusable React components for each form step, navigation, progress bar, and success message.
+- **`pages/`**
+  - Next.js pages, including the main application entry point.
+- **`public/`**
+  - Static assets like images and favicon.
+- **`styles/`**
+  - CSS modules and global styles.
+- **`tests/`**
+  - Unit tests for form validation logic.
+- **`theme.js`**
+  - Custom theme configurations for Chakra UI.
+
+## Technologies Used
+
+- **Next.js**: Framework for server-rendered React applications.
+- **React**: JavaScript library for building user interfaces.
+- **Chakra UI**: Modular and accessible component library.
+- **React Hook Form**: For handling form state and validation.
+- **Yup**: JavaScript schema builder for value parsing and validation.
+- **Jest**: Testing framework for JavaScript.
+- **React Testing Library**: Simple and complete React DOM testing utilities.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/YourFeature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/YourFeature`
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
